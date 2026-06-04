@@ -83,3 +83,4 @@ else:
     print("You don't have coupan", end="\n")
     print("No discount", end="\n")
     print("Your final amount is: ", final_amt)
+    print("\n")
