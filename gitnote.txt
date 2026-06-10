@@ -1,0 +1,123 @@
+# Github practice ...
+# install git, create SSH key using ssh-keygen, copy key to github
+# create repo
+# git init .
+# git status
+# git add .
+# git commit -m "commit msg"
+# git remove -v:
+# origin  git@github.com:username/repo.git (fetch)
+# origin  git@github.com:username/repo.git (push)
+# git remote add origin <remote-url>
+# git remote add origin <remote-url>
+# git branch
+# git branch -M main
+# git push origin main
+# git branch new_branch
+# git checkout -b new_branch
+# git branch
+# git checkout new_branch
+# git pull
+# git clone <remote-url>
+
+
+## 1. Install Git
+Download and install Git for Windows.
+
+Check installation:
+git --version
+
+## 2. Configure Git (First Time Only)
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+Check configuration:
+git config --list
+
+## 3. Generate SSH Key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+Press Enter to accept the default location.
+
+## 4. Start SSH Agent
+PowerShell:
+Start-Service ssh-agent
+
+CMD:
+net start ssh-agent
+
+## 5. Add SSH Key
+ssh-add %USERPROFILE%\.ssh\id_ed25519
+
+## 6. Copy Public Key
+type %USERPROFILE%\.ssh\id_ed25519.pub
+
+Copy the displayed key and add it to GitHub.
+
+## 7. Test GitHub SSH Connection
+ssh -T git@github.com
+
+## 8. Create a Repository on GitHub
+- Sign in to GitHub
+- Click "New Repository"
+- Create repository
+
+## 9. Initialize Local Repository
+git init
+
+## 10. Check Status
+git status
+
+## 11. Add Files
+git add .
+
+## 12. Commit Changes
+git commit -m "Initial commit"
+
+## 13. Add Remote Repository
+git remote add origin git@github.com:username/repository.git
+
+Verify:
+git remote -v
+
+## 14. Rename Branch to Main
+git branch -M main
+
+## 15. First Push
+git push -u origin main
+
+## 16. View Branches
+git branch
+
+## 17. Create New Branch
+git branch feature-1
+
+OR
+
+git checkout -b feature-1
+
+## 18. Switch Branch
+git checkout feature-1
+
+## 19. Pull Latest Changes
+git pull
+
+## 20. Push Changes
+git push
+
+## 21. Clone Existing Repository
+git clone git@github.com:username/repository.git
+
+## Daily Workflow
+git status
+git add .
+git commit -m "commit message"
+git push
+
+## Useful Commands
+git log --oneline
+git branch
+git remote -v
+git pull
+git push
+git status
