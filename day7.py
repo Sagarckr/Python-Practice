@@ -83,46 +83,57 @@ import random
 
 i = 1
 j = 10
-
 max_attempt = 5
-count = 0
-system_data = random.randint(i, j)
+total_attempts = 0
 
 while True:
-    print("Attempt remaining:", max_attempt - count)
+    system_data = random.randint(i, j)
+    count = 0
 
-    user_data = int(input("Guess number: "))
-    count += 1
+    print(f"\nGuess the number between {i} and {j}")
+    print(f"You have {max_attempt} attempts.")
 
-    if user_data == system_data:
-        print("You guessed it right!")
+    while count < max_attempt:
+        print("\nAttempts remaining:", max_attempt - count)
 
-        again = input("Do you want to play again (Yes/No): ")
+        try:
+            user_data = int(input("Guess number: "))
 
-        if again.lower() == "yes":
-            system_data = random.randint(i, j)
-            count = 0
+            if user_data < i or user_data > j:
+                print(f"Please enter a number between {i} and {j}.")
+                continue
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
             continue
-        else:
+
+        count += 1
+        total_attempts += 1
+
+        if user_data == system_data:
+            print(f"You guessed it right in {count} attempt(s)!")
             break
 
-    if count >= max_attempt:
-        print("No attempts remaining.")
-
-        again = input("Do you want to play again (Yes/No): ")
-
-        if again.lower() == "yes":
-            system_data = random.randint(i, j)
-            count = 0
-            continue
+        if user_data < system_data:
+            print("Please try a higher number.")
         else:
-            break
+            print("Please try a lower number.")
 
-    if user_data < system_data:
-        print("Please try a higher number.")
     else:
-        print("Please try a lower number.")
+        print("\nNo attempts remaining.")
+        print("The correct number was:", system_data)
 
-print("Total attempts:", count)
-print("Random number was:", system_data)
+    while True:
+        again = input("\nDo you want to play again (Yes/No): ").strip().lower()
+
+        if again in ("yes", "y"):
+            break
+        elif again in ("no", "n"):
+            print("\nThanks for playing!")
+            print("Total attempts across all games:", total_attempts)
+            exit()
+        else:
+            print("Please enter Yes or No.")
+
+    # If the user chose "yes", the outer loop starts a new game.
         
