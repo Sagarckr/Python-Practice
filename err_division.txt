@@ -1,0 +1,5 @@
+division by zero
+2026-06-23 division by zero
+2026-06-23 07:39:16.296156 | ZeroDivisionError | division by zero
+2026-06-23 | ZeroDivisionError | division by zero
+2026-06-23 | ZeroDivisionError | division by zero
