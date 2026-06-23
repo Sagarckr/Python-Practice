@@ -11,3 +11,6 @@ except NameError as message:
 
 except Exception as e:
     print(e)
+
+finally:
+    print("this is running")
