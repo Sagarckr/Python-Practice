@@ -3,6 +3,27 @@ import requests
 url = "https://markets.onlinekhabar.com/smtm/stock_live/sector-performance"
 
 r = requests.get(url)
+if r.status_code == 200:
+    data = r.json()
+    response = data['response']
+    positive = []
+    negative = []
+    for item in response:
+        if item['points_change']<0:
+            negative.append(item['indices'])
+        else:
+            positive.append(item['indices'])
+    print("Positive -->", len(positive))
+    print("Negative -->", len(negative))
+
+print("===================================================")
+print("===================================================")
+
+import requests
+
+url = "https://markets.onlinekhabar.com/smtm/stock_live/sector-performance"
+
+r = requests.get(url)
 
 if r.status_code == 200:
     result = r.json()
